@@ -2,10 +2,10 @@ using GuidelinesStandardDotNet.Currency.Models;
 
 namespace GuidelinesStandardDotNet.Currency;
 
-public class CurrencyHandler
+public static class CurrencyHandler
 {
-    public static CurrencyValue ConvertToCurrency(decimal amount, string culture)
+    public static MonetaryAmount ConvertToCurrency(decimal amount, string currencyCode)
     {
-        return new CurrencyValue(amount, culture);
+        return new MonetaryAmount(amount, currencyCode);
     }
 }
