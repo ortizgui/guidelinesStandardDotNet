@@ -1,13 +1,17 @@
-namespace GuidelinesStandardDotNet.Currency.Models;
-
-public class MonetaryAmount
+namespace GuidelinesStandardDotNet.Currency.Models
 {
-    public decimal Amount { get; private set; }
-    public string CurrencyCode { get; private set; }
-
-    public MonetaryAmount(decimal amount, string currencyCode)
+    public class MonetaryAmount
     {
-        Amount = amount;
-        CurrencyCode = currencyCode;
+        public decimal Amount { get; private set; }
+        public string CurrencyCode { get; private set; }
+
+        public MonetaryAmount(decimal amount, string currencyCode)
+        {
+            if (string.IsNullOrWhiteSpace(currencyCode))
+                throw new ArgumentException("Currency code cannot be null or empty", nameof(currencyCode));
+
+            Amount = amount;
+            CurrencyCode = currencyCode;
+        }
     }
 }
