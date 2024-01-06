@@ -8,7 +8,7 @@ namespace GuidelinesStandardDotNet.Currency.Models
         public MonetaryAmount(decimal amount, string currencyCode)
         {
             if (string.IsNullOrWhiteSpace(currencyCode))
-                throw new ArgumentException("Currency code cannot be null or empty", nameof(currencyCode));
+                throw new ArgumentException("Currency code cannot be null or empty.", nameof(currencyCode));
 
             Amount = amount;
             CurrencyCode = currencyCode;
